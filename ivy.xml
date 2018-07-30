@@ -1,0 +1,56 @@
+<!--
+ * JBoss, Home of Professional Open Source.
+ * Copyright 2009, Red Hat Middleware LLC, and individual contributors
+ * as indicated by the @author tags. See the copyright.txt file in the
+ * distribution for a full listing of individual contributors.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+<ivy-module version="2.0" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+
+  <info organisation="org.jboss.tattletale" 
+        module="tattletale"
+        revision="${version}">
+    <license name="lgpl" url="http://repository.jboss.org/licenses/lgpl.txt"/>
+    <repository name="jboss" url="http://repository.jboss.org"/>
+    <description homepage="http://www.jboss.org/tattletale">
+      Tattletale - a software quality tool
+    </description>
+  </info>
+
+  <configurations defaultconfmapping="core->default;tattletale->default;tattletale-ant->default;tattletale-maven->default">
+    <conf name="core" transitive="false"/>
+
+    <conf name="tattletale" transitive="false"/>
+    <conf name="tattletale-ant" transitive="false"/>
+    <conf name="tattletale-maven" transitive="false"/>
+  </configurations>
+
+  <publications>
+    <artifact name="tattletale" type="jar"/>
+    <artifact name="tattletale-ant" type="jar"/>
+    <artifact name="tattletale-maven" type="jar"/>
+  </publications>
+
+  <dependencies>
+    <dependency org="ant" name="ant" rev="${version.ant}" conf="core,tattletale-ant"/>
+    <dependency org="org.apache.maven" name="maven-plugin-api" rev="${version.maven}" conf="core,tattletale-maven"/>
+    <dependency org="org.javassist" name="javassist" rev="${version.javassist}" conf="core,tattletale"/>
+  </dependencies>
+
+</ivy-module>
